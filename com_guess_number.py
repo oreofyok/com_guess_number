@@ -1,4 +1,5 @@
 import random
+import time
 
 player = " "
 l = 0;h = 0
@@ -40,33 +41,35 @@ while player != "c":
   if c in alll - already:
     already.add(c)
     error = 0
-      
+    
+    time.sleep(1)
+    
     print()
-    print("your number is",l,"-",h,"right?")
-    print("Then. Is",c,"correct?")
+    print("your number is",l,"-",h,"right?"); time.sleep(.5)
+    print("Then. Is",c,"correct?") ; time.sleep(.5)
     if mode == "1":
-      player = input("too low(l),too high(h), correct(c): ")
+      player = input("too low(l),too high(h), correct(c): ") ; time.sleep(.5)
       print("already =",already)
     elif mode == "2":
       if c < destination:
-        print("you told it too low from (",destination,")")
-        print("already =",already)
+        print("you told it too low from (",destination,")") ; time.sleep(.5)
+        print("already =",already) ; time.sleep(.5)
         player = "l"
       elif c > destination:
-        print("you told it too high from (",destination,")")
-        print("already =",already)
+        print("you told it too high from (",destination,")") ; time.sleep(.5)
+        print("already =",already) ; time.sleep(.5)
         player = "h"
       elif c == destination:
         player = "c"
     if player == "l":
       if c == h:
         print()
-        print("is",c,"too low?")
+        print("is",c,"too low?") ; time.sleep(.5)
         if mode == "1":
-          h = int(input("input your max number again: "))
+          h = int(input("input your max number again: ")) ; time.sleep(.5)
         elif mode == "2":
           h = destination + 10
-          print("The max upper to",h)
+          print("The max upper to",h) ; time.sleep(.5)
         for i in range(l,h+1):
           alll.add(i)
         
@@ -75,12 +78,12 @@ while player != "c":
     elif player == "h":
       if c == l:
         print()
-        print("is",c,"too high?")
+        print("is",c,"too high?") ; time.sleep(.5)
         if mode == "1":
-          l = int(input("input your min number again: "))
+          l = int(input("input your min number again: ")) ; time.sleep(.5)
         elif mode == "2":
           l = destination - 10
-          print("The min lower to",l)
+          print("The min lower to",l) ; time.sleep(.5)
         for i in range(l,h+1):
           alll.add(i)
         
@@ -90,32 +93,32 @@ while player != "c":
       if mode == "2" and l < destination:
         h = destination + 10
         print()
-        print("seems max is too low,max up to",h)
+        print("seems max is too low,max up to",h) ; time.sleep(.5)
         for i in range(l,h+1):
           alll.add(i)
         
       elif mode == "2" and l > destination:
         l = destination - 10
         print()
-        print("seems min is too high,min low to",l)
+        print("seems min is too high,min low to",l) ; time.sleep(.5)
         for i in range(l,h+1):
           alll.add(i)
         
       elif mode == "2" and l == destination:
         c = l
-        print("there is only one number left and that number is ",c)
+        print("there is only one number left and that number is ",c) ; time.sleep(.5)
         break
   elif c in already:
     error += 1
     #print(c,"is an already number",error)
     if error == 20:
-      print("already guess all number that can guess ,program quit")
+      print("already guess all number that can guess ,program quit") ; time.sleep(.5)
       break
     
   
 print()
 if error != 20:
-  print("com think in",think,"rounds")
+  print("com think in",think,"rounds") ; time.sleep(.5)
   print("Correct number is",c)
 else:
   print("cannot find your number.")
